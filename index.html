@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protótipo: captura de notas</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="app"></div>
+
+  <!-- Controles do protótipo: fora do #app para não serem recriados a cada renderização. -->
+  <aside id="sim" aria-label="Controles de simulação do protótipo">
+    <details>
+      <summary>Simulação</summary>
+      <label>Cenário
+        <select id="cenario">
+          <option value="normal">Normal</option>
+          <option value="bloqueio">Bloqueio da SEF-SC (NFC-e)</option>
+          <option value="agente_parado">Agente CT-e parado</option>
+          <option value="carregando">Carregando (1,5 s)</option>
+          <option value="vazio">Sem dados</option>
+          <option value="erro">Erro ao carregar</option>
+        </select>
+      </label>
+      <label>Certificado
+        <select id="cert-sim">
+          <option value="normal">Válido (244 dias)</option>
+          <option value="vencendo">Vencendo (29 dias)</option>
+          <option value="vencido">Vencido</option>
+          <option value="sem">Sem certificado</option>
+          <option value="semcofre">Sem cofre cifrado</option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="vincok"> Vínculo já cadastrado no SAT</label>
+      <label class="chk"><input type="checkbox" id="procok"> Procuração já cadastrada no ADN</label>
+      <label class="chk"><input type="checkbox" id="rej593"> SEFAZ recusa a manifestação (593)</label>
+      <button type="button" id="reiniciar">Reiniciar dados</button>
+      <p>Tudo é fictício e vive só nesta aba. "Tentar novamente" e "Cadastrar produtor" dão certo apenas com o vínculo (SEF-SC) e a procuração (ADN) marcados, cada um para o seu serviço. A manifestação dá certo, a menos que a recusa 593 esteja marcada.</p>
+    </details>
+  </aside>
+  <div id="toasts" aria-hidden="true"></div>
+  <div id="aviso-vivo" class="sr" role="status" aria-live="polite"></div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
